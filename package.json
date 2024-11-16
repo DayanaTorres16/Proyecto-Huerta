@@ -1,0 +1,16 @@
+{
+  "name": "proyecto-huerta",
+  "version": "1.0.0",
+  "description": "La Huerta de  es una aplicación web diseñada para facilitar la compra de productos orgánicos frescos directamente desde la comodidad del hogar. Esta aplicación permitirá a los clientes realizar pedidos, suscribirse a cestas de productos y realizar un seguimiento del estado de sus pedidos, todo con opciones de pago …manipulación de la base de datos, asegurando la integridad y coherencia de la información.",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "mysql2": "^3.11.4"
+  }
+}
