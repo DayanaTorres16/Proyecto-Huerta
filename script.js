@@ -41,18 +41,47 @@ function register() {
     if (firstName && lastName && email && password && confirmPassword) {
         if (password === confirmPassword) {
             alert(`Registrando ${userType}: ${firstName} ${lastName}`);
-            // Aquí puedes agregar la lógica de registro
 
+            // Validar que todos los campos estén completos y que las contraseñas coincidan
+    if (!firstName || !lastName || !email || !password || !confirmPassword || !userType) {
+        alert('Por favor, completa todos los campos.');
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert('Las contraseñas no coinciden.');
+        return;
+    }
+
+    // Crear un objeto con los datos para enviar al servidor
+    const userData = {
+        firstName,
+        lastName,
+        email,
+        password,
+        userType
+    };
             fetch('/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ firstName, lastName, email, password, address, phone, userType })
+                body: JSON.stringify(userData)
             })
+
             .then(response => response.json())
-            .then(data => alert(data.message))
-            .catch(error => alert('Error al registrar el usuario'));
+            .then(data => {
+                alert(data.message);
+                if (data.success) {
+                    // Redirigir o limpiar el formulario si el registro fue exitoso
+                    showScreen('login'); // Redirigir a la pantalla de login si el registro fue exitoso
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error al registrar el usuario');
+            });
+            
         } else {
             alert('Las contraseñas no coinciden.');
         }
@@ -60,3 +89,4 @@ function register() {
         alert('Por favor, completa todos los campos de registro.');
     }
 }
+ 
