@@ -34,11 +34,25 @@ function register() {
     const email = document.getElementById('registerEmail').value;
     const password = document.getElementById('registerPassword').value;
     const confirmPassword = document.getElementById('registerConfirmPassword').value;
+    const address = document.getElementById('registerAddress').value;  // Solo para Cliente
+    const phone = document.getElementById('registerPhone').value;  // Solo para Cliente
+    const userType = document.getElementById('userType').value; // Obtener el tipo de usuario
 
     if (firstName && lastName && email && password && confirmPassword) {
         if (password === confirmPassword) {
-            alert(`Registrando usuario ${firstName} ${lastName}`);
+            alert(`Registrando ${userType}: ${firstName} ${lastName}`);
             // Aquí puedes agregar la lógica de registro
+
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ firstName, lastName, email, password, address, phone, userType })
+            })
+            .then(response => response.json())
+            .then(data => alert(data.message))
+            .catch(error => alert('Error al registrar el usuario'));
         } else {
             alert('Las contraseñas no coinciden.');
         }

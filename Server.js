@@ -51,23 +51,52 @@ app.post('/login', (req, res) => {
     });
   });
   
-  // Ruta de registro
-  app.post('/register', (req, res) => {
-    const { nombre_administrador, correo_administrador, contraseña_administrador } = req.body;
-  
-    const query = 'INSERT INTO Administrador (nombre_administrador, correo_administrador, contraseña_administrador) VALUES (?, ?, ?)';
-    
-    db.query(query, [nombre_administrador, correo_administrador, contraseña_administrador], (err, results) => {
-      if (err) {
-        res.status(500).send('Error al registrar usuario');
-        return;
-      }
-      res.send('Registro exitoso');
-    });
-  });
-  
-  // Configurar el puerto del servidor
-  const PORT = process.env.PORT || 4000;
-  app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);
-  });
+// Ruta para registrar un nuevo usuario (Cliente o Administrador)
+app.post('/register', (req, res) => {
+  const { firstName, lastName, email, password, address, phone, userType } = req.body;
+
+  if (userType === 'cliente') {
+      // Registrar como Cliente
+      const queryCheck = 'SELECT * FROM Cliente WHERE correo_cliente = ?';
+      db.query(queryCheck, [email], (err, results) => {
+          if (err) {
+              return res.status(500).json({ success: false, message: 'Error en la consulta' });
+          }
+          if (results.length > 0) {
+              return res.status(400).json({ success: false, message: 'El correo ya está registrado como cliente' });
+          }
+
+          // Insertar el cliente en la base de datos
+          const queryInsert = 'INSERT INTO Cliente (nombre_cliente, correo_cliente, contraseña_cliente, direccion_cliente, num_telefonoCliente) VALUES (?, ?, ?, ?, ?)';
+          db.query(queryInsert, [firstName, lastName, email, password, address, phone], (err, results) => {
+              if (err) {
+                  return res.status(500).json({ success: false, message: 'Error al registrar el cliente' });
+              }
+              res.status(200).json({ success: true, message: 'Cliente registrado exitosamente' });
+          });
+      });
+
+  } else if (userType === 'administrador') {
+      // Registrar como Administrador
+      const queryCheck = 'SELECT * FROM Administrador WHERE correo_administrador = ?';
+      db.query(queryCheck, [email], (err, results) => {
+          if (err) {
+              return res.status(500).json({ success: false, message: 'Error en la consulta' });
+          }
+          if (results.length > 0) {
+              return res.status(400).json({ success: false, message: 'El correo ya está registrado como administrador' });
+          }
+
+          // Insertar el administrador en la base de datos
+          const queryInsert = 'INSERT INTO Administrador (nombre_administrador, correo_administrador, contraseña_administrador) VALUES (?, ?, ?)';
+          db.query(queryInsert, [firstName, lastName, email, password], (err, results) => {
+              if (err) {
+                  return res.status(500).json({ success: false, message: 'Error al registrar el administrador' });
+              }
+              res.status(200).json({ success: true, message: 'Administrador registrado exitosamente' });
+          });
+      });
+  } else {
+      return res.status(400).json({ success: false, message: 'Tipo de usuario no válido' });
+  }
+});
