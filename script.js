@@ -2,21 +2,27 @@ function showScreen(screen) {
     const mainScreen = document.getElementById('mainScreen');
     const loginScreen = document.getElementById('loginScreen');
     const registerScreen = document.getElementById('registerScreen');
+    const normalizacionScreen = document.getElementById('normalizacion');
 
     mainScreen.style.display = 'none';
     loginScreen.style.display = 'none';
     registerScreen.style.display = 'none';
+    normalizacionScreen.style.display = 'none';
 
     if (screen === 'main') {
         mainScreen.style.display = 'flex';
     } else if (screen === 'login') {
-        loginScreen.style.display = 'block';
+        loginScreen.style.display = 'flex';
     } else if (screen === 'register') {
-        registerScreen.style.display = 'block';
+        registerScreen.style.display = 'flex';
+    } else if (screen === 'normalizacion') {
+        normalizacionScreen.style.display = 'block'; // Muestra la pantalla de normalización
     }
 }
 
 function login() {
+    showScreen('normalizacion');
+
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
     
@@ -29,6 +35,8 @@ function login() {
 }
 
 function register() {
+    showScreen('normalizacion');
+    
     const firstName = document.getElementById('registerFirstName').value;
     const lastName = document.getElementById('registerLastName').value;
     const email = document.getElementById('registerEmail').value;
@@ -90,3 +98,6 @@ function register() {
     }
 }
  
+function navigateTo(page) {
+    window.location.href = page; // Redirige a la página especificada
+}
