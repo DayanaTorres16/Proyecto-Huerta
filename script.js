@@ -3,12 +3,20 @@ function showScreen(screen) {
     const loginScreen = document.getElementById('loginScreen');
     const registerScreen = document.getElementById('registerScreen');
     const normalizacionScreen = document.getElementById('normalizacion');
+    const verdurasScreen = document.getElementById('verduras');
+    const frutasScreen = document.getElementById('frutas');
+    const hierbasScreen = document.getElementById('hierbas');
 
+    // Ocultar todas las pantallas
     mainScreen.style.display = 'none';
     loginScreen.style.display = 'none';
     registerScreen.style.display = 'none';
     normalizacionScreen.style.display = 'none';
+    verdurasScreen.style.display = 'none';
+    frutasScreen.style.display = 'none';
+    hierbasScreen.style.display = 'none';
 
+    // Mostrar la pantalla seleccionada
     if (screen === 'main') {
         mainScreen.style.display = 'flex';
     } else if (screen === 'login') {
@@ -17,6 +25,12 @@ function showScreen(screen) {
         registerScreen.style.display = 'flex';
     } else if (screen === 'normalizacion') {
         normalizacionScreen.style.display = 'block'; // Muestra la pantalla de normalización
+    } else if (screen === 'verduras') {
+        verdurasScreen.style.display = 'block'; // Muestra la pantalla de verduras
+    } else if (screen === 'frutas') {
+        frutasScreen.style.display = 'block'; // Muestra la pantalla de frutas
+    } else if (screen === 'hierbas') {
+        hierbasScreen.style.display = 'block'; // Muestra la pantalla de hierbas
     }
 }
 

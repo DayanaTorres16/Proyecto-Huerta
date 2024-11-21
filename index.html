@@ -10,87 +10,416 @@
 
 <body>
 
-    <div id="mainScreen">
-        <div class="container">
-            <img src="imagenes/logo.png" alt="Imagen Logo">
-            <button class="btn-login" onclick="showScreen('login')">Iniciar Sesión</button>
-            <button class="btn-register" onclick="showScreen('register')">Registrarse</button>
-        </div>
-    </div>
+    <body>
 
-    <div id="loginScreen" style="display: none;">
-        <div class="container">
-            <img src="imagenes/logo.png" alt="Logo" class="logo">
-            <h2>Inicio de Sesión</h2>
-            <input type="text" id="loginUsername" placeholder="Usuario" required>
-            <input type="password" id="loginPassword" placeholder="Contraseña" required>
-            <button class="btn-login1" onclick="login()">Iniciar Sesión</button>
-            <button class="btn-back" onclick="showScreen('main')">Volver</button>
-        </div>
-    </div>
-
-    <div id="registerScreen" style="display: none;">
-        <div class="container">
-            <img src="imagenes/logo.png" alt="Logo" class="logo">
-            <h2>Registro</h2>
-            <input type="text" id="registerFirstName" placeholder="Nombre" required>
-            <input type="text" id="registerLastName" placeholder="Apellido" required>
-            <input type="email" id="registerEmail" placeholder="Correo" required>
-            <input type="password" id="registerPassword" placeholder="Contraseña" required>
-            <input type="password" id="registerConfirmPassword" placeholder="Confirmar Contraseña" required>
-            <select id="userType" required>
-                <option value="cliente">Cliente</option>
-                <option value="administrador">Administrador</option>
-            </select>
-            <button class="btn-register1" onclick="register()">Registrar</button>
-            <button class="btn-back" onclick="showScreen('main')">Volver</button>
+        <div id="mainScreen">
+            <div class="container">
+                <img src="imagenes/logo.png" alt="Imagen Logo">
+                <button class="btn-login" onclick="showScreen('login')">Iniciar Sesión</button>
+                <button class="btn-register" onclick="showScreen('register')">Registrarse</button>
+            </div>
         </div>
     
-    </div>
-    <div id="normalizacion" style="display: none;">
-        <header class="menu">
-            <nav>
-                <ul class="menu">
-                    <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
-                    <input type="text" class="search-bar" placeholder="Buscar...">
-                    <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')"></li>
-                    <li><img src="imagenes/carrito.png" alt="Carrito" onclick="navigateTo('carrito.html')"></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <section class="primeraSeccion">
-            <div class="seccion-texto">
-                <h1>La Huerta</h1>
-                <p>Descubre el sabor auténtico de la naturaleza: en nuestra huerta, cultivamos alimentos orgánicos y frescos, llenos de vida y amor por la tierra.</p>
-                <button class="boton-informacion" onclick="navigateTo('informacion.html')">Más Información</button>
+        <div id="loginScreen" style="display: none;">
+            <div class="container">
+                <img src="imagenes/logo.png" alt="Logo" class="logo">
+                <h2>Inicio de Sesión</h2>
+                <form>
+                    <input type="text" id="loginUsername" placeholder="Usuario" required>
+                    <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                    <button class="btn-login1" onclick="login()">Iniciar Sesión</button>
+                    <button class="btn-back" onclick="showScreen('main')">Volver</button>
+                </form>
             </div>
-            <div class="seccioni">
-                <img src="imagenes/imagen vegetales 1.jpg" alt="">
+        </div>
+    
+        <div id="registerScreen" style="display: none;">
+            <div class="container">
+                <img src="imagenes/logo.png" alt="Logo" class="logo">
+                <h2>Registro</h2>
+                <form>
+                    <input type="text" id="registerFirstName" placeholder="Nombre" required>
+                    <input type="text" id="registerLastName" placeholder="Apellido" required>
+                    <input type="email" id="registerEmail" placeholder="Correo" required>
+                    <input type="password" id="registerPassword" placeholder="Contraseña" required>
+                    <input type="password" id="registerConfirmPassword" placeholder="Confirmar Contraseña" required>
+                    <select id="userType" required>
+                        <option value="cliente">Cliente</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
+                    <button class="btn-register1" onclick="register()">Registrar</button>
+                    <button class="btn-back" onclick="showScreen('main')">Volver</button>
+                </form>
             </div>
-        </section>
-        
-        <section class="menu-categorias">
-            <h2>Categorías</h2>
-            <div class="categorias"> 
-                <div>
-                    <img src="imagenes/verduras.jpg" alt="Verduras" onclick="navigateTo('verduras.html')">
-                    <h3>Verduras</h3>
+        </div>
+    
+        <div id="normalizacion" style="display: none;">
+            <header class="menu">
+                <nav>
+                    <ul class="menu">
+                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <input type="text" class="search-bar" placeholder="Buscar...">
+                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')"></li>
+                        <li><img src="imagenes/carrito.png" alt="Carrito" onclick="navigateTo('carrito.html')"></li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="primeraSeccion">
+                <div class="seccion-texto">
+                    <h1>La Huerta</h1>
+                    <p>Descubre el sabor auténtico de la naturaleza: en nuestra huerta, cultivamos alimentos orgánicos y frescos, llenos de vida y amor por la tierra.</p>
+                    <button class="boton-informacion" onclick="navigateTo('informacion.html')">Más Información</button>
                 </div>
-                <div>
-                    <img src="imagenes/frutas.jpg" alt="Frutas" onclick="navigateTo('frutas.html')">
-                    <h3>Frutas</h3>
+                <div class="seccioni">
+                    <img src="imagenes/imagen vegetales 1.jpg" alt="">
                 </div>
-                <div>
-                    <img src="imagenes/hierbas.jpg" alt="Hierbas" onclick="navigateTo('hierbas.html')">
-                    <h3>Hierbas</h3>
+            </section>
+            
+            <section class="menu-categorias">
+                <h2>Categorías</h2>
+                <div class="categorias"> 
+                    <div>
+                        <img src="imagenes/verduras.jpg" alt="Verduras" onclick="showScreen('verduras')">
+                        <h3>Verduras</h3>
+                    </div>
+                    <div>
+                        <img src="imagenes/frutas.jpg" alt="Frutas" alt="Frutas" onclick="showScreen('frutas')">
+                        <h3>Frutas</h3>
+                    </div>
+                    <div>
+                        <img src="imagenes/hierbas.jpg" alt="Hierbas" onclick="showScreen('hierbas')">
+                        <h3>Hierbas</h3>
+                    </div>
+                    <div>
+                        <img src="imagenes/huevos.jpg" alt="Otros" onclick="navigateTo('otros.html')">
+                        <h3>Otros</h3>
+                    </div>
                 </div>
-                <div>
-                    <img src="imagenes/huevos.jpg" alt="Otros" onclick="navigateTo('otros.html')">
-                    <h3>Otros</h3>
+            </section>
+        </div>
+    
+        <div id="verduras" style="display: none;">
+            <header class="menu">
+                <nav>
+                    <ul class="menu">
+                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <input type="text" class="search-bar" placeholder="Buscar...">
+                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')"></li>
+                        <li><img src="imagenes/carrito.png" alt="Carrito" onclick="navigateTo('carrito.html')"></li>
+                    </ul>
+                </nav>
+            </header>
+            <section class="verduras">
+                <div class="titulo-verduras">
+                    <div>
+                        <h1>Verduras</h1> 
+                        <p>Descubre la frescura y calidad de nuestras verduras orgánicas, cultivadas con amor y dedicación. </p>
+                    </div>
                 </div>
-            </div>
-        </section>
+                <div class="contenedor-verduras">
+                    <article class="tarjetas">
+                        <img src="imagenes/acelga.jpg" alt="">
+                        <h3>Acelga</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/ahuyama.jpg" alt="">
+                        <h3>Ahuyama</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/ahuyama_peruana.jpg" alt="">
+                        <h3>Ahuyama Peruana</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/alcachofa.jpg" alt="">
+                        <h3>Alcachofa</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/alfalfa.jpg" alt="">
+                        <h3>Alfalfa</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/apio.jpg" alt="">
+                        <h3>Apio</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/arracacha.jpg" alt="">
+                        <h3>Arracacha</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/arveja_cascara.jpg" alt="">
+                        <h3>Arverja Cascara</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/arveja_desgranada.jpg" alt="">
+                        <h3>Arveja Desgranada</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/batata.jpg" alt="">
+                        <h3>Batata</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/berenjena.jpg" alt="">
+                        <h3>Berenjena</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/brocoli.jpg" alt="">
+                        <h3>Brócoli</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/calabacin.jpg" alt="">
+                        <h3>Calabacín</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/calabaza.jpg" alt="">
+                        <h3>Calabaza</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/cebolla_cabezona_blanca.jpg" alt="">
+                        <h3>Cebolla Cabezona</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/cebolla_cabezona_roja.jpg" alt="">
+                        <h3>Cebolla Cabezona Roja</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/cebolla_larga.jpg" alt="">
+                        <h3>Cebolla Larga</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/cebollin.jpg" alt="">
+                        <h3>Cebollín</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/champinones.jpg" alt="">
+                        <h3>Champinones</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/champinones_tajados.jpg" alt="">
+                        <h3>Champinones Tajados</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                </div>
+            </section>
+        </div>
+        <div id="frutas" style="display: none;">
+            <header class="menu">
+                <nav>
+                    <ul class="menu">
+                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <input type="text" class="search-bar" placeholder="Buscar...">
+                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')"></li>
+                        <li><img src="imagenes/carrito.png" alt="Carrito" onclick="navigateTo('carrito.html')"></li>
+                    </ul>
+                </nav>
+            </header>
+    
+            <section class="frutas">
+                <div class="titulo-frutas">
+                    <div>
+                        <h1>Frutas</h1> 
+                        <p>Disfruta de nuestras frutas frescas y deliciosas, cultivadas con el mayor cuidado.</p>
+                    </div>
+                </div>
+                <div class="contenedor-frutas">
+                    <article class="tarjetas">
+                        <img src="imagenes/agraz.jpg" alt="">
+                        <h3>Agraz</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/aguacate.jpg" alt="">
+                        <h3>Aguacate</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/aguacate_hass.jpg" alt="">
+                        <h3>Aguacate Hass</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/anon.jpg" alt="">
+                        <h3>Anon</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/arandanos.jpg" alt="">
+                        <h3>Arandanos</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/fresa_jumbo.jpg" alt="">
+                        <h3>Fresa Jumbo</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/fresa_pareja.jpg" alt="">
+                        <h3>Fresa Pareja</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/guanabana.jpg" alt="">
+                        <h3>Guanabana</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/mango_azucar.jpg" alt="">
+                        <h3>Mango de Azucar</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/mango_comun.jpg" alt="">
+                        <h3>Mango Comun</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/mango_tommy.jpg" alt="">
+                        <h3>Mango Tommy</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                </div>
+            </section>
+        </div>
+    
+        <div id="hierbas" style="display: none;">
+            <header class="menu">
+                <nav>
+                    <ul class="menu">
+                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <input type="text" class="search-bar" placeholder="Buscar...">
+                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')"></li>
+                        <li><img src="imagenes/carrito.png" alt="Carrito" onclick="navigateTo('carrito.html')"></li>
+                    </ul>
+                </nav>
+            </header>
+    
+            <section class="hierbas">
+                <div class="titulo-hierbas">
+                    <div>
+                        <h1>Hierbas</h1> 
+                        <p>Explora nuestra variedad de hierbas frescas, perfectas para realzar tus platillos.</p>
+                    </div>
+                </div>
+                <div class="contenedor-hierbas">
+                    <article class="tarjetas">
+                        <img src="imagenes/albacon.jpg" alt="">
+                        <h3>Albacon</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/albahaca.jpg" alt="">
+                        <h3>Albahaca</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/aromaticas_hojas.jpg" alt="">
+                        <h3>Hojas Aromáticas</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/cilantro.jpg" alt="">
+                        <h3>Cilantro</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/flor_de_jamaica.jpg" alt="">
+                        <h3>Flor de Jamaica</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/guascas.jpg" alt="">
+                        <h3>Guascas</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/laurel.jpg" alt="">
+                        <h3>Laurel</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/manzanilla.jpg" alt="">
+                        <h3>Manzanilla</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/perejil_crespo.jpg" alt="">
+                        <h3>Perejil Crespo</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/poleo.jpg" alt="">
+                        <h3>Poleo</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                    <article class="tarjetas">
+                        <img src="imagenes/ruda.jpg" alt="">
+                        <h3>Ruda</h3>
+                        <p>Desde $</p>
+                        <button>Agregar al carrito</button>
+                    </article>
+                </div>
+            </section>
+        </div>
+    
         <footer>
             <p>&copy; 2024 La Huerta. Todos los derechos reservados.</p>
             <p>Dirección: Calle Ficticia 123, Ciudad, País.</p>
@@ -119,7 +448,7 @@
             
             <p><a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
         </footer>
-    </div>
+    
 
 
     <script src="script.js"></script>
