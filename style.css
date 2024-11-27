@@ -1,4 +1,5 @@
 * {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -7,7 +8,7 @@
 }
 
 /* Estilos para las pantallas específicas */
-#mainScreen,
+#homeScreen,
 #registerScreen,
 #loginScreen {
     display: flex;
@@ -74,19 +75,22 @@ button {
     font-size: 20px;
 }
 
-.btn-login {
+.btnLogin {
     background-color: #F5B7B1; 
 }
 
-.btn-register {
+.btnRegister {
     background-color: #A9DFBF;
 }
 
-.btn-back {
+.btnBack {
     background-color: #b6e5ec; 
 }
-.btn-login1{
+.btnLogin1{
     background-color:#F5B7B1 ;
+}
+.btnRegister1{
+    background-color: #A9DFBF;
 }
 button:hover {
     background-color: #87bbe1;
@@ -97,18 +101,18 @@ button:hover {
     margin-bottom: 20px;
 }
 
-/*Pantalla principal de la huerta*/
+
 .menu {
     background-color: #C1CFA1;
     color: white;
-    padding: 1px;
+    padding: 0; /* Sin padding */
     text-align: center; /* Centrar la barra de navegación */
 }
 
 .menu ul {
     list-style-type: none;
     margin: 0; /* Eliminar margen del ul */
-    padding: 0;
+    padding: 0; /* Sin padding */
     display: flex; /* Cambiado a flex para centrar */
     justify-content: space-between; /* Distribuir espacio entre elementos */
     align-items: center; /* Centrar verticalmente */
@@ -135,8 +139,7 @@ button:hover {
     background-color: #F5F7F8;
 }
 
-
-.primeraSeccion {
+.firstSection {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -144,17 +147,19 @@ button:hover {
     background-color: #EDE8DC;
     padding: auto;
 }
-.seccion-texto h1{
+.sectionText h1{
     font-size: 80px;
+    text-align: center;
 }
-.seccion-texto {
+.sectionText{
     flex: 1;
     margin-right: 10px;
     margin-left: 40px;
     font-size: 20px;
+    text-align: center;
 }
 
-.seccioni img {
+.sectionImage img {
     max-width: 60cm;
     height: auto;
     margin-right: 70px;
@@ -163,19 +168,19 @@ button:hover {
 
 }
 
-.boton-informacion {
-    background-color: #E7CCCC;
-    font-size: 15px;
-    width: 20%;
+.btnInformation {
+    background-color: #E9B2BC;
+    font-size: 20px;
+    width: 30%;
     height: 40px;
     border-radius: 10px;
     border: 1px;
-    opacity: 70%;
-
+    display: flex;
+    justify-self: center;
+    justify-content: center;
 }
 
-/* Estilos para la sección de categorías */
-section {
+.menuCategories {
     margin-top: 20px;
     margin-bottom: 40px;
     text-align: center;
@@ -183,21 +188,21 @@ section {
 
 }
 
-.menu-categorias h2 {
+.menuCategories h2 {
     font-size: 50px;
 }
 
-.categorias {
+.categories {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-.categorias div {
+.categories div {
     text-align: center;
 }
 
-.categorias img {
+.categories img {
     width: 300px; 
     height: 300px; 
     border-radius: 50%; 
@@ -208,7 +213,243 @@ h3 {
     margin-top: 10px; 
     font-size: 30px;
 }
-footer {
+.containerInformation{
+    display: flex; 
+    flex-direction: column; 
+    gap: 20px; 
+    padding: 0;
+}
+.containerIntrodution {
+    display: flex; 
+    align-items: center; 
+    gap: 20px;
+    background-color: #EDE8DC;
+    margin: 0; /* Sin margen alrededor de la sección */
+    padding: 15px; /* Sin padding */
+}
+
+.containerIntrodution h2 {
+    font-size: 45px;
+    color: #666;
+    display: flex;
+    justify-content: center;
+}
+
+.containerIntrodution p {
+    font-size: 20px;
+    color: #333;
+}
+.animated-image {
+    width: 100%; /* Ancho completo del contenedor */
+    height: 350px; /* Altura fija para todas las imágenes */
+    border-radius: 10px;
+    object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-out {
+    opacity: 0; /* Desvanece la imagen */
+}
+.location {
+    text-align: center;
+    padding: 10px;
+    background-color: #F1F9F9; /* Color de fondo suave */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin: 5px 0; /* Espaciado alrededor del artículo */
+}
+.location h2{
+    font-size: 45px;
+    color: #5B8C2A;
+}
+
+.location p {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+}
+
+.location iframe {
+    margin: 15px;
+    border:0;
+    width: 100%;
+    height: 450px;
+    border-radius: 10px; 
+}
+
+.location button {
+    padding: 10px 20px;
+    background-color: #E7CCCC; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.location button:hover {
+    background-color: #A5B68D; 
+}
+.location button a:hover {
+    color: white; 
+}
+.cultivation-methods {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #F6F5F2;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cultivation-methods h2 {
+    color: #4f7e20;
+    text-align: center;
+    font-size: 35px;
+}
+
+.cultivation-methods p {
+    font-size: 16px;
+    color: #333;
+    margin: 8px;
+
+}
+
+.method {
+    margin: 20px 0;
+}
+
+.method h3 {
+    color: #4f7e20;
+}
+
+.method p {
+    color: #555;
+}
+
+.benefits-accordion {
+    max-width: 1000px;
+    margin: auto;
+    padding: 20px;
+    background-color: #F7F9E9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.benefits-accordion h2 {
+    color: #4f7e20;
+    text-align: center;
+    font-size: 35px;
+}
+
+.benefit {
+    margin: 10px 0;
+}
+
+.benefit button {
+    width: 100%;
+    padding: 15px;
+    background-color: #4f7e20;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.benefit .content {
+    display: none;
+    padding: 10px;
+    background-color: #EAE8D2;
+    border-radius: 5px;
+}
+
+.benefit p {
+    font-size: 16px;
+    color: #333;
+}
+.vegetables, .fruits, .herbs{
+    padding: 1px;
+    margin: 0px;
+}
+.titleVegetables, .titleFruits{
+    background-image: url("imagenes/fondo1.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 100px 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.titleHerbs{
+    background-image: url("imagenes/fondo2.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 90px 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.titleOthers{
+    background-image: url("imagenes/fondoOtros.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 90px 20px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+.titleVegetables h1, .titleFruits h1, .titleHerbs h1, .titleOtherss h1{
+    font-size: 80px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+
+}
+.titleVegetables p, .titleFruits p, .titleHerbs p, .titleOthers p{
+    font-size: 30px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+.containerVegetables, .containerFruits, .containerHerbs, .containerOthers{
+    margin: 40px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 15px;
+  }
+.cards{
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 2px 1px 5px 2px #A6AEBF;
+    padding: 30px;
+    text-align: center;
+  }
+  .cards img{
+    max-width: 100%;
+    height: 150px;
+  }
+  .cards h3 {
+    margin-top: 15px;
+    font-size: 18px;
+  }
+  
+  .cards p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .cards button {
+    margin-top: 10px;
+    background-color: #A0D683;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  footer {
     background-color: #A5B68D;
     color: white;
     text-align: center;
@@ -232,90 +473,17 @@ footer a:hover {
     text-decoration: underline; 
 }
 
-.footer-section {
+.footersction {
     margin-top: 50px;
 }
 
-.footer-section h4 {
+.footersection h4 {
     margin-bottom: 10px;
 }
 
-.social-icons img {
+.socialIcons img {
     width: 30px;
     height: 30px;
     margin: 0 10px;
     mix-blend-mode: multiply;
 }
-.verduras, .frutas, .hierbas{
-    padding: 1px;
-    margin: 0px;
-}
-.titulo-verduras, .titulo-frutas{
-    background-image: url("imagenes/fondo1.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 100px 20px;
-    text-align: center;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-.titulo-hierbas{
-    background-image: url("imagenes/fondo2.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 90px 20px;
-    text-align: center;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-.titulo-verduras h1, .titulo-frutas h1, .titulo-hierbas h1{
-    font-size: 80px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    margin: 20px;
-
-}
-.titulo-verduras p, .titulo-frutas p, .titulo-hierbas p{
-    font-size: 30px;
-    color: white;
-    display: flex;
-    justify-content: center;
-}
-.contenedor-verduras, .contenedor-frutas, .contenedor-hierbas{
-    margin: 40px;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 15px;
-  }
-.tarjetas{
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 2px 1px 5px 2px #A6AEBF;
-    padding: 30px;
-    text-align: center;
-  }
-  .tarjetas img{
-    max-width: 100%;
-    height: 150px;
-  }
-  .tarjetas h3 {
-    margin-top: 15px;
-    font-size: 18px;
-  }
-  
-  .tarjetas p {
-    margin-top: 5px;
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .tarjetas button {
-    margin-top: 10px;
-    background-color: #A0D683;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-  }

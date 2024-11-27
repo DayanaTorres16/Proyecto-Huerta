@@ -1,41 +1,50 @@
 function showScreen(screen) {
-    const mainScreen = document.getElementById('mainScreen');
+    const homeScreen = document.getElementById('homeScreen');
     const loginScreen = document.getElementById('loginScreen');
     const registerScreen = document.getElementById('registerScreen');
-    const normalizacionScreen = document.getElementById('normalizacion');
-    const verdurasScreen = document.getElementById('verduras');
-    const frutasScreen = document.getElementById('frutas');
-    const hierbasScreen = document.getElementById('hierbas');
+    const mainScreen = document.getElementById('mainScreen');
+    const informationScreen = document.getElementById('information');
+    const saleOfVegetablesScreen = document.getElementById('saleOfVegetables');
+    const saleOfFruitsScreen = document.getElementById('saleOfFruits');
+    const saleOfHerbsScreen = document.getElementById('saleOfHerbs');
+    const saleOtherScreen = document.getElementById('saleOther');
 
     // Ocultar todas las pantallas
-    mainScreen.style.display = 'none';
+    homeScreen.style.display = 'none';
     loginScreen.style.display = 'none';
     registerScreen.style.display = 'none';
-    normalizacionScreen.style.display = 'none';
-    verdurasScreen.style.display = 'none';
-    frutasScreen.style.display = 'none';
-    hierbasScreen.style.display = 'none';
+    mainScreen.style.display = 'none';
+    informationScreen.style.display = 'none';
+    saleOfVegetablesScreen.style.display = 'none';
+    saleOfFruitsScreen.style.display = 'none';
+    saleOfHerbsScreen.style.display = 'none';
+    saleOtherScreen.style.display = 'none';
+   
 
     // Mostrar la pantalla seleccionada
-    if (screen === 'main') {
-        mainScreen.style.display = 'flex';
+    if (screen === 'home') {
+        homeScreen.style.display = 'flex';
     } else if (screen === 'login') {
         loginScreen.style.display = 'flex';
     } else if (screen === 'register') {
         registerScreen.style.display = 'flex';
-    } else if (screen === 'normalizacion') {
-        normalizacionScreen.style.display = 'block'; // Muestra la pantalla de normalización
-    } else if (screen === 'verduras') {
-        verdurasScreen.style.display = 'block'; // Muestra la pantalla de verduras
-    } else if (screen === 'frutas') {
-        frutasScreen.style.display = 'block'; // Muestra la pantalla de frutas
-    } else if (screen === 'hierbas') {
-        hierbasScreen.style.display = 'block'; // Muestra la pantalla de hierbas
+    } else if (screen === 'main') {
+        mainScreen.style.display = 'block'; 
+    } else if (screen === 'information') {
+        informationScreen.style.display = 'block'; 
+    } else if (screen === 'saleOfVegetables') {
+        saleOfVegetablesScreen.style.display = 'block'; 
+    } else if (screen === 'saleOfFruits') {
+        saleOfFruitsScreen.style.display = 'block'; 
+    } else if (screen === 'saleOfHerbs') {
+        saleOfHerbsScreen.style.display = 'block'; 
+    } else if (screen === 'saleOther') {
+        saleOtherScreen.style.display = 'block'; 
     }
 }
 
 function login() {
-    showScreen('normalizacion');
+    showScreen('main');
 
     const username = document.getElementById('loginUsername').value;
     const password = document.getElementById('loginPassword').value;
@@ -49,7 +58,7 @@ function login() {
 }
 
 function register() {
-    showScreen('normalizacion');
+    showScreen('main');
     
     const firstName = document.getElementById('registerFirstName').value;
     const lastName = document.getElementById('registerLastName').value;
@@ -115,3 +124,26 @@ function register() {
 function navigateTo(page) {
     window.location.href = page; // Redirige a la página especificada
 }
+
+const images = ['imagenes/huerta1.jpg', 'imagenes/huerta2.jpg', 'imagenes/huerta3.jpg'];
+let index = 0;
+
+function changeImage() {
+    const imgElement = document.querySelector('.animated-image');
+    imgElement.classList.add('fade-out'); // Añade la clase de salida
+    setTimeout(() => {
+        index = (index + 1) % images.length; // Cambia el índice
+        imgElement.src = images[index]; // Cambia la fuente de la imagen
+        imgElement.classList.remove('fade-out'); // Elimina la clase de salida
+    }, 1000); // Tiempo de la animación de salida
+}
+
+// Cambia la imagen cada 5 segundos
+setInterval(changeImage, 5000);
+const buttons = document.querySelectorAll('.benefit button');
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    });
+});
