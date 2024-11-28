@@ -1,3 +1,52 @@
+const vegetables = [
+    { name: "Acelga", img: "imagenes/acelga.jpg", price: "Desde $" },
+    { name: "Ahuyama", img: "imagenes/ahuyama.jpg", price: "Desde $" },
+    { name: "Ahuyama Peruana", img: "imagenes/ahuyama_peruana.jpg", price: "Desde $" },
+    { name: "Alcachofa", img: "imagenes/alcachofa.jpg", price: "Desde $" },
+    { name: "Alfalfa", img: "imagenes/alfalfa.jpg", price: "Desde $" },
+    { name: "Apio", img: "imagenes/apio.jpg", price: "Desde $" },
+    { name: "Arracacha", img: "imagenes/arracacha.jpg", price: "Desde $" },
+    { name: "Arverja Cascara", img: "imagenes/arveja_cascara.jpg", price: "Desde $" },
+    { name: "Arveja Desgranada", img: "imagenes/arveja_desgranada.jpg", price: "Desde $" },
+    { name: "Batata", img: "imagenes/batata.jpg", price: "Desde $" },
+    { name: "Berenjena", img: "imagenes/berenjena.jpg", price: "Desde $" },
+    { name: "Brócoli", img: "imagenes/brocoli.jpg", price: "Desde $" },
+    { name: "Calabacín", img: "imagenes/calabacin.jpg", price: "Desde $" },
+    { name: "Calabaza", img: "imagenes/calabaza.jpg", price: "Desde $" },
+    { name: "Cebolla Cabezona", img: "imagenes/cebolla_cabezona_blanca.jpg", price: "Desde $" },
+    { name: "Cebolla Cabezona Roja", img: "imagenes/cebolla_cabezona_roja.jpg", price: "Desde $" },
+    { name: "Cebolla Larga", img: "imagenes/cebolla_larga.jpg", price: "Desde $" },
+    { name: "Cebollín", img: "imagenes/cebollin.jpg", price: "Desde $" },
+    { name: "Champinones", img: "imagenes/champinones.jpg", price: "Desde $" },
+    { name: "Champinones Tajados", img: "imagenes/champinones_tajados.jpg", price: "Desde $" }
+]; 
+const fruits = [
+    { name: "Agraz", img: "imagenes/agraz.jpg", price: "Desde $" },
+    { name: "Aguacate", img: "imagenes/aguacate.jpg", price: "Desde $" },
+    { name: "Aguacate Hass", img: "imagenes/aguacate_hass.jpg", price: "Desde $" },
+    { name: "Anon", img: "imagenes/anon.jpg", price: "Desde $" },
+    { name: "Arandanos", img: "imagenes/arandanos.jpg", price: "Desde $" },
+    { name: "Fresa Jumbo", img: "imagenes/fresa_jumbo.jpg", price: "Desde $" },
+    { name: "Fresa Pareja", img: "imagenes/fresa_pareja.jpg", price: "Desde $" },
+    { name: "Guanabana", img: "imagenes/guanabana.jpg", price: "Desde $" },
+    { name: "Mango de Azucar", img: "imagenes/mango_azucar.jpg", price: "Desde $" },
+    { name: "Mango Comun", img: "imagenes/mango_comun.jpg", price: "Desde $" },
+    { name: "Mango Tommy", img: "imagenes/mango_tommy.jpg", price: "Desde $" }
+];
+const herbs = [
+    { name: "Albacon", img: "imagenes/albacon.jpg", price: "Desde $" },
+    { name: "Albahaca", img: "imagenes/albahaca.jpg", price: "Desde $" },
+    { name: "Hojas Aromáticas", img: "imagenes/aromaticas_hojas.jpg", price: "Desde $" },
+    { name: "Cilantro", img: "imagenes/cilantro.jpg", price: "Desde $" },
+    { name: "Guascas", img: "imagenes/guascas.jpg", price: "Desde $" },
+    { name: "Laurel", img: "imagenes/laurel.jpg", price: "Desde $" },
+    { name: "Fresa Pareja", img: "imagenes/fresa_pareja.jpg", price: "Desde $" },
+    { name: "Manzanilla", img: "imagenes/manzanilla.jpg", price: "Desde $" },
+    { name: "Perejil Crespo", img: "imagenes/perejil_crespo.jpg", price: "Desde $" },
+    { name: "Poleo", img: "imagenes/poleo.jpg", price: "Desde $" },
+    { name: "Ruda", img: "imagenes/ruda.jpg", price: "Desde $" }
+];
+
 function showScreen(screen) {
     const homeScreen = document.getElementById('homeScreen');
     const loginScreen = document.getElementById('loginScreen');
@@ -19,9 +68,7 @@ function showScreen(screen) {
     saleOfFruitsScreen.style.display = 'none';
     saleOfHerbsScreen.style.display = 'none';
     saleOtherScreen.style.display = 'none';
-   
 
-    // Mostrar la pantalla seleccionada
     if (screen === 'home') {
         homeScreen.style.display = 'flex';
     } else if (screen === 'login') {
@@ -34,13 +81,66 @@ function showScreen(screen) {
         informationScreen.style.display = 'block'; 
     } else if (screen === 'saleOfVegetables') {
         saleOfVegetablesScreen.style.display = 'block'; 
+        generateVegetableCards(); // Generar tarjetas de verduras
     } else if (screen === 'saleOfFruits') {
         saleOfFruitsScreen.style.display = 'block'; 
+        generateFruitCards(); // Generar tarjetas de frutas
     } else if (screen === 'saleOfHerbs') {
         saleOfHerbsScreen.style.display = 'block'; 
-    } else if (screen === 'saleOther') {
-        saleOtherScreen.style.display = 'block'; 
+        generateHerbsCards();
+    }  else if (screen === 'saleOther') {
+        saleOther.style.display = 'block'; 
     }
+}
+
+function generateVegetableCards() {
+    const vegetableContainer = document.getElementById('vegetableContainer');
+    vegetableContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas tarjetas
+
+    vegetables.forEach(vegetable => {
+        const article = document.createElement('article');
+        article.classList.add('cards');
+        article.innerHTML = `
+            <img src="${vegetable.img}" alt="${vegetable.name}">
+            <h3>${vegetable.name}</h3>
+            <p>${vegetable.price}</p>
+            <button>Agregar al carrito</button>
+        `;
+        vegetableContainer.appendChild(article);
+    });
+}
+
+function generateFruitCards() {
+    const fruitContainer = document.getElementById('containerFruits');
+    fruitContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas tarjetas
+
+    fruits.forEach(fruit => {
+        const article = document.createElement('article');
+        article.classList.add('cards');
+        article.innerHTML = `
+            <img src="${fruit.img}" alt="${fruit.name}">
+            <h3>${fruit.name}</h3>
+            <p>${fruit.price}</p>
+            <button>Agregar al carrito</button>
+        `;
+        fruitContainer.appendChild(article);
+    });
+}
+function generateHerbsCards() {
+    const herbsContainer = document.getElementById('containerHerbs');
+    herbsContainer.innerHTML = ''; // Limpiar el contenedor antes de agregar nuevas tarjetas
+
+    herbs.forEach(herbs => {
+        const article = document.createElement('article');
+        article.classList.add('cards');
+        article.innerHTML = `
+            <img src="${herbs.img}" alt="${herbs.name}">
+            <h3>${herbs.name}</h3>
+            <p>${herbs.price}</p>
+            <button>Agregar al carrito</button>
+        `;
+        herbsContainer.appendChild(article);
+    });
 }
 
 function login() {
