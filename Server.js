@@ -208,3 +208,18 @@ app.post('/pedidos', (req, res) => {
       res.status(500).send('Error al crear el pedido');
       return;
     }
+
+    const pedidoId = results.insertId;
+
+    const queryDetalle = 'INSERT INTO DetallePedido (id_pedido, id_producto, cantidad) VALUES (?, ?, ?)';
+    productos.forEach((producto) => {
+      db.query(queryDetalle, [pedidoId, producto.id, producto.cantidad], (err) => {
+        if (err) {
+          res.status(500).send('Error al agregar detalle del pedido');
+        }
+      });
+    });
+
+    res.status(201).send('Pedido realizado exitosamente');
+  });
+});
