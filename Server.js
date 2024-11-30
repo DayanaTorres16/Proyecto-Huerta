@@ -195,3 +195,10 @@ app.delete('/carrito/:id', (req, res) => {
     }
   });
 });
+
+//  Gestión de Pedidos 
+
+// Realizar un pedido
+app.post('/pedidos', (req, res) => {
+  const { clienteId, productos } = req.body;
+
