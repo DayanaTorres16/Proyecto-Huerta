@@ -154,3 +154,44 @@ app.delete('/productos/:id', (req, res) => {
     }
   });
 });
+
+//  Gestión del Carrito 
+
+// Obtener los productos del carrito de un cliente
+app.get('/carrito/:clienteId', (req, res) => {
+  const { clienteId } = req.params;
+  const query = 'SELECT * FROM Carrito WHERE id_cliente = ?';
+  db.query(query, [clienteId], (err, results) => {
+    if (err) {
+      res.status(500).send('Error al obtener el carrito');
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
+// Agregar un producto al carrito
+app.post('/carrito', (req, res) => {
+  const { clienteId, productoId, cantidad } = req.body;
+  const query = 'INSERT INTO Carrito (id_cliente, id_producto, cantidad) VALUES (?, ?, ?)';
+  db.query(query, [clienteId, productoId, cantidad], (err) => {
+    if (err) {
+      res.status(500).send('Error al agregar el producto al carrito');
+    } else {
+      res.status(201).send('Producto agregado al carrito');
+    }
+  });
+});
+
+// Eliminar un producto del carrito
+app.delete('/carrito/:id', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM Carrito WHERE id_carrito = ?';
+  db.query(query, [id], (err) => {
+    if (err) {
+      res.status(500).send('Error al eliminar el producto del carrito');
+    } else {
+      res.status(200).send('Producto eliminado del carrito');
+    }
+  });
+});
