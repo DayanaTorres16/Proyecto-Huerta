@@ -469,3 +469,15 @@ document.querySelector('.search-bar').addEventListener('input', async (event) =>
         document.getElementById('search-results').textContent = 'Error al buscar productos.';
     }
 });
+
+// Obtén el elemento de la barra de búsqueda y el formulario
+const searchInput = document.getElementById('search');
+const searchForm = document.getElementById('search-form');
+
+// Escucha el evento de "keydown" en la barra de búsqueda
+searchInput.addEventListener('keydown', function (event) {
+  if (event.key === 'Enter') { 
+    event.preventDefault(); 
+    searchForm.submit(); 
+  }
+});
