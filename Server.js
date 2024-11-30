@@ -223,3 +223,17 @@ app.post('/pedidos', (req, res) => {
     res.status(201).send('Pedido realizado exitosamente');
   });
 });
+
+// Obtener pedidos de un cliente
+app.get('/pedidos/:clienteId', (req, res) => {
+  const { clienteId } = req.params;
+  const query = 'SELECT * FROM Pedido WHERE id_cliente = ?';
+  db.query(query, [clienteId], (err, results) => {
+    if (err) {
+      res.status(500).send('Error al obtener los pedidos');
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
+
