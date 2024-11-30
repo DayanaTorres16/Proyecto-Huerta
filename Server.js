@@ -202,3 +202,9 @@ app.delete('/carrito/:id', (req, res) => {
 app.post('/pedidos', (req, res) => {
   const { clienteId, productos } = req.body;
 
+  const queryPedido = 'INSERT INTO Pedido (id_cliente, fecha_pedido) VALUES (?, NOW())';
+  db.query(queryPedido, [clienteId], (err, results) => {
+    if (err) {
+      res.status(500).send('Error al crear el pedido');
+      return;
+    }
