@@ -63,10 +63,8 @@ function showScreen(screen) {
     const saleOfHerbsScreen = document.getElementById('saleOfHerbs');
     const saleOtherScreen = document.getElementById('saleOther'); 
     const cartScreen = document.getElementById('cart');
-    const paymenScreen = document.getElementById('paymentScreen');
-    
+    const paymentScreen = document.getElementById('paymentScreen');
 
-    // Aca se ocultan las pantallas
     homeScreen.style.display = 'none';
     loginScreen.style.display = 'none';
     registerScreen.style.display = 'none';
@@ -75,39 +73,65 @@ function showScreen(screen) {
     saleOfVegetablesScreen.style.display = 'none';
     saleOfFruitsScreen.style.display = 'none';
     saleOfHerbsScreen.style.display = 'none';
-    saleOtherScreen.style.display = 'none'; // Asegúrate de ocultar esta pantalla
+    saleOtherScreen.style.display = 'none'; 
     cartScreen.style.display = 'none';
-    paymenScreen.style.display = 'none';
+    paymentScreen.style.display = 'none';
 
-    // Se muestran las pantallas segun corresponde
     if (screen === 'home') {
         homeScreen.style.display = 'flex';
     } else if (screen === 'login') {
         loginScreen.style.display = 'flex';
+        window.history.pushState({ screen: 'login' }, 'Login', '#login');
     } else if (screen === 'register') {
         registerScreen.style.display = 'flex';
+        window.history.pushState({ screen: 'register' }, 'Registro', '#register');
     } else if (screen === 'main') {
         mainScreen.style.display = 'block'; 
+        window.history.pushState({ screen: 'main' }, 'Principal', '#main');
     } else if (screen === 'information') {
         informationScreen.style.display = 'block'; 
+        window.history.pushState({ screen: 'information' }, 'Información', '#information');
     } else if (screen === 'saleOfVegetables') {
         saleOfVegetablesScreen.style.display = 'block'; 
         generateVegetableCards(); 
+        window.history.pushState({ screen: 'saleOfVegetables' }, 'Venta de Verduras', '#saleOfVegetables');
     } else if (screen === 'saleOfFruits') {
         saleOfFruitsScreen.style.display = 'block'; 
         generateFruitCards(); 
+        window.history.pushState({ screen: 'saleOfFruits' }, 'Venta de Frutas', '#saleOfFruits');
     } else if (screen === 'saleOfHerbs') {
         saleOfHerbsScreen.style.display = 'block'; 
         generateHerbsCards();
-    } else if (screen === 'saleOther') { // Asegúrate de manejar esta opción
+        window.history.pushState({ screen: 'saleOfHerbs' }, 'Venta de Hierbas', '#saleOfHerbs');
+    } else if (screen === 'saleOther') {
         saleOtherScreen.style.display = 'block'; 
+        window.history.pushState({ screen: 'saleOther' }, 'Otros Productos', '#saleOther');
     } else if (screen === 'cart') {
         cartScreen.style.display = 'block'; 
-    }else if (screen === 'paymentScreen') {
-        paymenScreen.style.display = 'block';
+        window.history.pushState({ screen: 'cart' }, 'Carrito', '#cart');
+    } else if (screen === 'paymentScreen') {
+        paymentScreen.style.display = 'block';
+        window.history.pushState({ screen: 'paymentScreen' }, 'Pago', '#paymentScreen');
     }
 }
 
+window.onpopstate = function(event) {
+    if (event.state) {
+        showScreen(event.state.screen);
+    } else {
+        showScreen('home');
+    }
+};
+
+
+// Manejar el evento de retroceso en el historial
+window.onpopstate = function(event) {
+    if (event.state) {
+        showScreen(event.state.screen);
+    } else {
+        showScreen('home'); // Si no hay estado, regresar a la pantalla de inicio
+    }
+};
 function addToCart(product) {
     const existingProduct = cart.find(item => item.name === product.name);
     if (existingProduct) {
