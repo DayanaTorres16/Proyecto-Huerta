@@ -119,9 +119,25 @@
             <header class="menu">
                 <nav>
                     <ul class="menu">
-                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <li>
+                            <img src="imagenes/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
+                            <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                                <a href="#promociones"><img src="imagenes/promociones.png" alt="Promociones"> Promociones</a>
+                                <a href="#cupones"><img src="imagenes/cupones.png" alt="Cupones"> Cupones</a>
+                                <a href="#historial"><img src="imagenes/historial.png" alt="Historial de Compras"> Historial de Compras</a>
+                                <a href="#facturas"><img src="imagenes/facturas.png" alt="Facturas"> Facturas</a>
+                                <a href="#pedidos"><img src="imagenes/pedidos.png" alt="Pedidos"> Pedidos</a>
+                            </div>
+                        </li>
                         <input type="text" class="search-bar" placeholder="Buscar...">
-                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')">
+                        <li>
+                            <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-icon" onclick="toggleUserMenu()" style="cursor: pointer;">
+                            <div id="userDropdownMenu" class="user-dropdown-menu" style="display: none;">
+                                <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-avatar">
+                                <p id="userName">Nombre del Usuario</p>
+                                <a href="#datosUsuario">Datos del Usuario</a>
+                                <a href="#cerrarSesion" onclick="cerrarSesion()">Cerrar Sesión</a>
+                            </div>
                         </li>
                         <li><img src="imagenes/carrito.png" alt="Carrito" onclick="showScreen('cart')"></li>
                     </ul>
@@ -240,9 +256,25 @@
             <header class="menu">
                 <nav>
                     <ul class="menu">
-                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <li>
+                            <img src="imagenes/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
+                            <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                                <a href="#promociones"><img src="imagenes/promociones.png" alt="Promociones"> Promociones</a>
+                                <a href="#cupones"><img src="imagenes/cupones.png" alt="Cupones"> Cupones</a>
+                                <a href="#historial"><img src="imagenes/historial.png" alt="Historial de Compras"> Historial de Compras</a>
+                                <a href="#facturas"><img src="imagenes/facturas.png" alt="Facturas"> Facturas</a>
+                                <a href="#pedidos"><img src="imagenes/pedidos.png" alt="Pedidos"> Pedidos</a>
+                            </div>
+                        </li>
                         <input type="text" class="search-bar" placeholder="Buscar...">
-                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')">
+                        <li>
+                            <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-icon" onclick="toggleUserMenu()" style="cursor: pointer;">
+                            <div id="userDropdownMenu" class="user-dropdown-menu" style="display: none;">
+                                <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-avatar">
+                                <p id="userName">Nombre del Usuario</p>
+                                <a href="#datosUsuario">Datos del Usuario</a>
+                                <a href="#cerrarSesion" onclick="cerrarSesion()">Cerrar Sesión</a>
+                            </div>
                         </li>
                         <li><img src="imagenes/carrito.png" alt="Carrito" onclick="showScreen('cart')"></li>
                     </ul>
@@ -264,9 +296,25 @@
             <header class="menu">
                 <nav>
                     <ul class="menu">
-                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <li>
+                            <img src="imagenes/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
+                            <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                                <a href="#promociones"><img src="imagenes/promociones.png" alt="Promociones"> Promociones</a>
+                                <a href="#cupones"><img src="imagenes/cupones.png" alt="Cupones"> Cupones</a>
+                                <a href="#historial"><img src="imagenes/historial.png" alt="Historial de Compras"> Historial de Compras</a>
+                                <a href="#facturas"><img src="imagenes/facturas.png" alt="Facturas"> Facturas</a>
+                                <a href="#pedidos"><img src="imagenes/pedidos.png" alt="Pedidos"> Pedidos</a>
+                            </div>
+                        </li>
                         <input type="text" class="search-bar" placeholder="Buscar...">
-                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')">
+                        <li>
+                            <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-icon" onclick="toggleUserMenu()" style="cursor: pointer;">
+                            <div id="userDropdownMenu" class="user-dropdown-menu" style="display: none;">
+                                <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-avatar">
+                                <p id="userName">Nombre del Usuario</p>
+                                <a href="#datosUsuario">Datos del Usuario</a>
+                                <a href="#cerrarSesion" onclick="cerrarSesion()">Cerrar Sesión</a>
+                            </div>
                         </li>
                         <li><img src="imagenes/carrito.png" alt="Carrito" onclick="showScreen('cart')"></li>
                     </ul>
@@ -288,9 +336,25 @@
             <header class="menu">
                 <nav>
                     <ul class="menu">
-                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <li>
+                            <img src="imagenes/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
+                            <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                                <a href="#promociones"><img src="imagenes/promociones.png" alt="Promociones"> Promociones</a>
+                                <a href="#cupones"><img src="imagenes/cupones.png" alt="Cupones"> Cupones</a>
+                                <a href="#historial"><img src="imagenes/historial.png" alt="Historial de Compras"> Historial de Compras</a>
+                                <a href="#facturas"><img src="imagenes/facturas.png" alt="Facturas"> Facturas</a>
+                                <a href="#pedidos"><img src="imagenes/pedidos.png" alt="Pedidos"> Pedidos</a>
+                            </div>
+                        </li>
                         <input type="text" class="search-bar" placeholder="Buscar...">
-                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')">
+                        <li>
+                            <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-icon" onclick="toggleUserMenu()" style="cursor: pointer;">
+                            <div id="userDropdownMenu" class="user-dropdown-menu" style="display: none;">
+                                <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-avatar">
+                                <p id="userName">Nombre del Usuario</p>
+                                <a href="#datosUsuario">Datos del Usuario</a>
+                                <a href="#cerrarSesion" onclick="cerrarSesion()">Cerrar Sesión</a>
+                            </div>
                         </li>
                         <li><img src="imagenes/carrito.png" alt="Carrito" onclick="showScreen('cart')"></li>
                     </ul>
@@ -311,9 +375,25 @@
             <header class="menu">
                 <nav>
                     <ul class="menu">
-                        <li><img src="imagenes/menu.png" alt="Menú" onclick="navigateTo('menu.html')"></li>
+                        <li>
+                            <img src="imagenes/menu.png" alt="Menú" class="menu-icon" onclick="toggleMenu()" style="cursor: pointer;">
+                            <div id="dropdownMenu" class="dropdown-menu" style="display: none;">
+                                <a href="#promociones"><img src="imagenes/promociones.png" alt="Promociones"> Promociones</a>
+                                <a href="#cupones"><img src="imagenes/cupones.png" alt="Cupones"> Cupones</a>
+                                <a href="#historial"><img src="imagenes/historial.png" alt="Historial de Compras"> Historial de Compras</a>
+                                <a href="#facturas"><img src="imagenes/facturas.png" alt="Facturas"> Facturas</a>
+                                <a href="#pedidos"><img src="imagenes/pedidos.png" alt="Pedidos"> Pedidos</a>
+                            </div>
+                        </li>
                         <input type="text" class="search-bar" placeholder="Buscar...">
-                        <li><img src="imagenes/iconoUsuario.png" alt="Usuario" onclick="navigateTo('usuario.html')">
+                        <li>
+                            <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-icon" onclick="toggleUserMenu()" style="cursor: pointer;">
+                            <div id="userDropdownMenu" class="user-dropdown-menu" style="display: none;">
+                                <img src="imagenes/iconoUsuario.png" alt="Usuario" class="user-avatar">
+                                <p id="userName">Nombre del Usuario</p>
+                                <a href="#datosUsuario">Datos del Usuario</a>
+                                <a href="#cerrarSesion" onclick="cerrarSesion()">Cerrar Sesión</a>
+                            </div>
                         </li>
                         <li><img src="imagenes/carrito.png" alt="Carrito" onclick="showScreen('cart')"></li>
                     </ul>
