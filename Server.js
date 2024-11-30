@@ -100,3 +100,17 @@ app.post('/register', (req, res) => {
       return res.status(400).json({ success: false, message: 'Tipo de usuario no válido' });
   }
 });
+
+//  Gestión de Productos 
+
+// Obtener todos los productos
+app.get('/productos', (req, res) => {
+  const query = 'SELECT * FROM Producto';
+  db.query(query, (err, results) => {
+    if (err) {
+      res.status(500).send('Error al obtener los productos');
+    } else {
+      res.status(200).json(results);
+    }
+  });
+});
