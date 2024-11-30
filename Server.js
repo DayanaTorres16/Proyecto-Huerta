@@ -278,7 +278,7 @@ app.get('/search', (req, res) => {
 
   // Consulta SQL para buscar productos por nombre
   const query = `SELECT * FROM Producto WHERE nombre_producto LIKE ?`;
-  connection.query(query, [`%${searchTerm}%`], (error, results) => {
+  db.query(query, [`%${searchTerm}%`], (error, results) => {
     if (error) {
       console.error('Error en la consulta:', error);
       return res.status(500).json({ error: 'Error al realizar la búsqueda' });
