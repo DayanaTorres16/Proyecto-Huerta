@@ -388,3 +388,30 @@ buttons.forEach(button => {
         content.style.display = content.style.display === 'block' ? 'none' : 'block';
     });
 });
+
+// Enviar una solicitud de búsqueda al backend
+document.querySelector('.search-bar').addEventListener('input', async (event) => {
+    const searchTerm = event.target.value;
+
+    try {
+        const response = await fetch(`/search?q=${encodeURIComponent(searchTerm)}`);
+        const data = await response.json();
+
+        // Mostrar los resultados en la página
+        const resultsContainer = document.getElementById('search-results');
+        resultsContainer.innerHTML = ''; // Limpiar resultados anteriores
+
+        if (data.length > 0) {
+            data.forEach(producto => {
+                const productElement = document.createElement('div');
+                productElement.textContent = `Nombre: ${producto.nombre_producto} | Precio: ${producto.precio}`;
+                resultsContainer.appendChild(productElement);
+            });
+        } else {
+            resultsContainer.textContent = 'No se encontraron productos.';
+        }
+    } catch (error) {
+        console.error('Error al buscar productos:', error);
+        document.getElementById('search-results').textContent = 'Error al buscar productos.';
+    }
+});

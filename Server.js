@@ -237,11 +237,61 @@ app.get('/pedidos/:clienteId', (req, res) => {
   });
 });
 
-// Inicializar servidor
+// Gestion del pago
 
-const PORT = 4000;
+// Ruta para procesar el pago
+app.post('/procesar-pago', (req, res) => {
+  const { clienteId, metodoPago, numeroTarjeta, fechaExpiracion, cvv, monto } = req.body;
+
+  // Validar los datos básicos
+  if (!clienteId || !metodoPago || !monto) {
+    return res.status(400).json({ success: false, message: 'Datos insuficientes para procesar el pago' });
+  }
+
+  // Guardar el pago en la base de datos
+  const query = `
+    INSERT INTO Pago (id_cliente, metodo_pago, numero_tarjeta, fecha_expiracion, cvv, monto) 
+    VALUES (?, ?, ?, ?, ?, ?)
+  `;
+  db.query(
+    query,
+    [clienteId, metodoPago, numeroTarjeta || null, fechaExpiracion || null, cvv || null, monto],
+    (err, results) => {
+      if (err) {
+        console.error('Error al procesar el pago:', err);
+        return res.status(500).json({ success: false, message: 'Error al procesar el pago' });
+      }
+
+      res.status(201).json({ success: true, message: 'Pago procesado exitosamente', pagoId: results.insertId });
+    }
+  );
+});
+
+// Barra de busqueda
+
+// Ruta para buscar productos
+app.get('/search', (req, res) => {
+  const searchTerm = req.query.q;
+  if (!searchTerm) {
+    return res.status(400).json({ error: 'Se requiere un término de búsqueda' });
+  }
+
+  // Consulta SQL para buscar productos por nombre
+  const query = `SELECT * FROM Producto WHERE nombre_producto LIKE ?`;
+  connection.query(query, [`%${searchTerm}%`], (error, results) => {
+    if (error) {
+      console.error('Error en la consulta:', error);
+      return res.status(500).json({ error: 'Error al realizar la búsqueda' });
+    }
+
+    res.json(results);
+  });
+});
+
+// Configuración para escuchar en el puerto
+const PORT = 4000; 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
 
-// Agregar integracion entre front y back
+app.use(express.static('public'));
