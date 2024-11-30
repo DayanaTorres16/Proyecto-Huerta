@@ -141,3 +141,16 @@ app.put('/productos/:id', (req, res) => {
     }
   });
 });
+
+// Eliminar un producto
+app.delete('/productos/:id', (req, res) => {
+  const { id } = req.params;
+  const query = 'DELETE FROM Producto WHERE id_producto = ?';
+  db.query(query, [id], (err) => {
+    if (err) {
+      res.status(500).send('Error al eliminar el producto');
+    } else {
+      res.status(200).send('Producto eliminado exitosamente');
+    }
+  });
+});
