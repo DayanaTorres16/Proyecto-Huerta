@@ -114,3 +114,30 @@ app.get('/productos', (req, res) => {
     }
   });
 });
+
+// Agregar un nuevo producto
+app.post('/productos', (req, res) => {
+  const { nombre, precio, stock } = req.body;
+  const query = 'INSERT INTO Producto (nombre_producto, precio_producto, stock_producto) VALUES (?, ?, ?)';
+  db.query(query, [nombre, precio, stock], (err, results) => {
+    if (err) {
+      res.status(500).send('Error al agregar el producto');
+    } else {
+      res.status(201).send('Producto agregado exitosamente');
+    }
+  });
+});
+
+// Actualizar un producto
+app.put('/productos/:id', (req, res) => {
+  const { id } = req.params;
+  const { nombre, precio, stock } = req.body;
+  const query = 'UPDATE Producto SET nombre_producto = ?, precio_producto = ?, stock_producto = ? WHERE id_producto = ?';
+  db.query(query, [nombre, precio, stock, id], (err) => {
+    if (err) {
+      res.status(500).send('Error al actualizar el producto');
+    } else {
+      res.status(200).send('Producto actualizado exitosamente');
+    }
+  });
+});
