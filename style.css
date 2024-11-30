@@ -440,7 +440,6 @@ h3 {
     font-size: 16px;
     color: #666;
   }
-.cards btn
   
   #cart {
     padding: 20px;
@@ -495,26 +494,47 @@ h3 {
     width: 100%;
     height: auto;
 }
+#paymentScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400x; 
+    max-width: 800px; 
+    margin: 0 auto; 
+}
+
 .payment h2 {
     text-align: center;
     color: #333;
+    font-size: 50px;
 }
+
 .payment label {
     display: block;
     margin: 10px 0 5px;
     color: #555;
 }
+
 .payment input[type="text"], 
 .payment input[type="date"] {
-    width: 100%;
+    width: 300px;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
 .payment input[type="radio"] {
     margin-right: 5px;
 }
+
 .payment button {
     width: 100%;
     padding: 10px;
@@ -524,18 +544,85 @@ h3 {
     border-radius: 4px;
     cursor: pointer;
 }
+
 .payment button:hover {
     background-color: #218838;
 }
+
 .payment-method {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 }
+
 .payment-method img {
-    width: 30px; /* Tamaño de la imagen */
+    width: 90px; 
     height: auto;
     margin-right: 10px;
+}
+
+.menu-icon {
+    width: 50px; 
+    height: auto; 
+}
+
+.dropdown-menu {
+    display: none; /* Oculta el menú por defecto */
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 5px; /* Espacio entre la imagen y el menú */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1; 
+}
+
+
+.user-dropdown-menu {
+    display: none; 
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 5px; 
+    padding: 15px; 
+    width: 200px; 
+    right: 10px;
+}
+
+.user-dropdown-menu img.user-avatar {
+    width: 90px; /* Tamaño de la imagen de usuario */
+    height: auto; /* Mantiene la proporción */
+    border-radius: 50%; /* Hace que la imagen sea redonda */
+}
+
+.user-dropdown-menu p {
+    margin: 10px 0; /* Espaciado para el nombre del usuario */
+    font-weight: bold;
+    font-size: 16px; 
+    color: black;
+}
+
+.user-dropdown-menu a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: #333;
+}
+
+.user-dropdown-menu a:hover {
+    background-color: rgba(241, 241, 241, 0.7); 
 }
 
   footer {
